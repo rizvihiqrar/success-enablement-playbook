@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasklane Triage Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Tasklane Triage Simulator</h1>
+    <p class="sub">Practice three common customer cases. Pick the best first step and read why. Tasklane is an imaginary product.</p>
+  </header>
+
+  <section id="card" aria-live="polite">
+    <p class="progress" id="progress"></p>
+    <h2 id="title"></h2>
+    <p id="situation"></p>
+    <div id="choices" class="choices"></div>
+    <div id="feedback" class="feedback" hidden></div>
+    <button id="next" type="button" hidden>Next scenario</button>
+  </section>
+
+  <section id="summary" hidden>
+    <h2>Your Result</h2>
+    <p id="score"></p>
+    <p>Read the guide for any scenario you missed, then try again.</p>
+    <button id="restart" type="button">Start again</button>
+  </section>
+</main>
+<script src="scenarios.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

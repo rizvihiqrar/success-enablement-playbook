@@ -1,0 +1,33 @@
+name: Release To Knowledge Base
+
+# A merged pull request labelled customer-facing opens a review issue for the enablement owner.
+# The workflow only drafts and assigns. A person reads, corrects and closes the issue.
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  draft-review-issue:
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'customer-facing')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build the draft from the pull request
+        run: node scripts/release-to-kb.js "$GITHUB_EVENT_PATH" "$RUNNER_TEMP"
+      - name: Open the review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create enablement-review --description "Guides to check after a customer-facing change" --color 0E8A16 || true
+          gh issue create \
+            --title "$(cat "$RUNNER_TEMP/title.txt")" \
+            --body-file "$RUNNER_TEMP/body.md" \
+            --label enablement-review \
+            --assignee "$GITHUB_REPOSITORY_OWNER"

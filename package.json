@@ -1,0 +1,13 @@
+{
+  "name": "success-enablement-playbook",
+  "version": "1.0.0",
+  "description": "A Docs-as-Code enablement playbook for an imaginary product, with a review workflow and a practice simulator",
+  "private": true,
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\"",
+    "check": "node scripts/check-playbook.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
