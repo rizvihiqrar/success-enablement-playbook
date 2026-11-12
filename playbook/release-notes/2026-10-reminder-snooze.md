@@ -23,7 +23,7 @@ Customers said reminders that arrived at a bad moment were dismissed and then fo
 
 ## Known Limits
 
-- A reminder can be snoozed up to three times.
+- A reminder can be snoozed up to five times.
 
 ## Guides Updated
 
