@@ -24,7 +24,7 @@ Teams with long task lists told us they rebuilt the same filters every morning. 
 
 ## Known Limits
 
-- A person can save up to 20 filters.
+- A person can save up to 50 filters.
 - Filters that use a deleted team member show an "unknown person" label until the filter is edited.
 
 ## Guides Updated
